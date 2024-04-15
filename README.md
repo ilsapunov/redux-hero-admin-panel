@@ -1,4 +1,4 @@
-# Created with Create React App
+# Redux practice
 
 [Deploy](#)
 
