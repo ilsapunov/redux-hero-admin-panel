@@ -1,4 +1,6 @@
-import { createAction } from "@reduxjs/toolkit";
+import { heroesFetching, heroesFetched, heroesFetchingError } from "../components/heroesList/heroesSlice";
+
+import { filtersFetched, filtersFetching, filtersFetchingError } from "../components/heroesFilters/filtersSlice";
 
 export const fetchHeroes = (request) => (dispatch) => {
     dispatch(heroesFetching());
@@ -19,7 +21,7 @@ export const fetchFilters = (request) => (dispatch) => {
 //     }
 // }
 
-export const heroesFetching = createAction('HEROES_FETCHING');
+// export const heroesFetching = createAction('HEROES_FETCHING');
 
 // export const heroesFetched = (heroes) => {
 //     return {
@@ -28,7 +30,7 @@ export const heroesFetching = createAction('HEROES_FETCHING');
 //     }
 // }
 
-export const heroesFetched = createAction('HEROES_FETCHED');
+// export const heroesFetched = createAction('HEROES_FETCHED');
 
 // export const heroesFetchingError = () => {
 //     return {
@@ -36,7 +38,7 @@ export const heroesFetched = createAction('HEROES_FETCHED');
 //     }
 // }
 
-export const heroesFetchingError = createAction('HEROES_FETCHING_ERROR');
+// export const heroesFetchingError = createAction('HEROES_FETCHING_ERROR');
 
 // export const filtersFetching = () => {
 //     return {
@@ -44,7 +46,7 @@ export const heroesFetchingError = createAction('HEROES_FETCHING_ERROR');
 //     }
 // }
 
-export const filtersFetching = createAction('FILTERS_FETCHING');
+// export const filtersFetching = createAction('FILTERS_FETCHING');
 
 // export const filtersFetched = (filters) => {
 //     return {
@@ -53,7 +55,7 @@ export const filtersFetching = createAction('FILTERS_FETCHING');
 //     }
 // }
 
-export const filtersFetched = createAction('FILTERS_FETCHED');
+// export const filtersFetched = createAction('FILTERS_FETCHED');
 
 // export const filtersFetchingError = () => {
 //     return {
@@ -61,7 +63,7 @@ export const filtersFetched = createAction('FILTERS_FETCHED');
 //     }
 // }
 
-export const filtersFetchingError = createAction('FILTERS_FETCHING_ERROR');
+// export const filtersFetchingError = createAction('FILTERS_FETCHING_ERROR');
 
 // export const activeFilterChanged = (filter) => {
 //     return {
@@ -70,7 +72,7 @@ export const filtersFetchingError = createAction('FILTERS_FETCHING_ERROR');
 //     }
 // }
 
-export const activeFilterChanged = createAction('ACTIVE_FILTER_CHANGED');
+// export const activeFilterChanged = createAction('ACTIVE_FILTER_CHANGED');
 
 // export const heroCreated = (hero) => {
 //     return {
@@ -79,7 +81,7 @@ export const activeFilterChanged = createAction('ACTIVE_FILTER_CHANGED');
 //     }
 // }
 
-export const heroCreated = createAction('HERO_CREATED');
+// export const heroCreated = createAction('HERO_CREATED');
 
 // export const heroDeleted = (id) => {
 //     return {
@@ -88,4 +90,4 @@ export const heroCreated = createAction('HERO_CREATED');
 //     }
 // }
 
-export const heroDeleted = createAction('HERO_DELETED');
+// export const heroDeleted = createAction('HERO_DELETED');
