@@ -1,9 +1,11 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
-import store from '../../store';
+// import store from '../../store';
 
-import { activeFilterChanged, fetchFilters, selectAll } from './filtersSlice';
+import { useGetFiltersQuery } from '../../api/apiSlice';
+
+import { activeFilterChanged} from './filtersSlice';
 import Spinner from '../spinner/Spinner';
 // Задача для этого компонента:
 // Фильтры должны формироваться на основании загруженных данных
@@ -14,20 +16,26 @@ import Spinner from '../spinner/Spinner';
 
 const HeroesFilters = () => {
 
-    const {filtersLoadingStatus, activeFilter} = useSelector(state => state.filters);
-    const filters = selectAll(store.getState());
+    const {
+        data: filters = [],
+        isLoading,
+        isError,
+    } = useGetFiltersQuery();
+
+    const {activeFilter} = useSelector(state => state.filters);
+    // const filters = selectAll(store.getState());
     const dispatch = useDispatch();
 
     // Запрос на сервер для получения фильтров и последовательной смены состояния
-    useEffect(() => {
-        dispatch(fetchFilters());
+    // useEffect(() => {
+    //     dispatch(fetchFilters());
 
-        // eslint-disable-next-line
-    }, []);
+    //     // eslint-disable-next-line
+    // }, []);
 
-    if (filtersLoadingStatus === "loading") {
+    if (isLoading) {
         return <Spinner/>;
-    } else if (filtersLoadingStatus === "error") {
+    } else if (isError) {
         return <h5 className="text-center mt-5">Ошибка загрузки</h5>
     }
 

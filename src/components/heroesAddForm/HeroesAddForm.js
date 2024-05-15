@@ -12,13 +12,13 @@
 
 // import {useHttp} from '../../hooks/http.hook';
 import { useState } from 'react';
-import {  useSelector } from 'react-redux';
+// import {  useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import store from '../../store';
+// import store from '../../store';
 
-import { selectAll } from '../heroesFilters/filtersSlice';
+// import { selectAll } from '../heroesFilters/filtersSlice';
 // import { heroCreated } from '../heroesList/heroesSlice';
-import { useCreateHeroMutation } from '../../api/apiSlice';
+import { useCreateHeroMutation, useGetFiltersQuery } from '../../api/apiSlice';
 
 const HeroesAddForm = () => {
     // Состояния для контроля формы
@@ -28,8 +28,14 @@ const HeroesAddForm = () => {
 
     const [createHero] = useCreateHeroMutation();
 
-    const {filtersLoadingStatus} = useSelector(state => state.filters);
-    const filters = selectAll(store.getState());
+    const {
+        data: filters = [],
+        isLoading,
+        isError,
+    } = useGetFiltersQuery();
+
+    // const {filtersLoadingStatus} = useSelector(state => state.filters);
+    // const filters = selectAll(store.getState());
     // const dispatch = useDispatch();
     // const {request} = useHttp();
 
@@ -60,10 +66,10 @@ const HeroesAddForm = () => {
         setHeroElement('');
     }
 
-    const renderFilters = (filters, status) => {
-        if (status === "loading") {
+    const renderFilters = (filters) => {
+        if (isLoading) {
             return <option>Загрузка элементов</option>
-        } else if (status === "error") {
+        } else if (isError) {
             return <option>Ошибка загрузки</option>
         }
         
@@ -117,7 +123,7 @@ const HeroesAddForm = () => {
                     value={heroElement}
                     onChange={(e) => setHeroElement(e.target.value)}>
                     <option value="">Я владею элементом...</option>
-                    {renderFilters(filters, filtersLoadingStatus)}
+                    {renderFilters(filters)}
                 </select>
             </div>
 
