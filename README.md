@@ -2,7 +2,7 @@
 
 [Deploy](https://ilsapunov.github.io/redux-hero-admin-panel)
 
-# Created with Create React App
+# Created with Create React App + Redux with JSON Server
 
 In the project directory, you can run:
 
