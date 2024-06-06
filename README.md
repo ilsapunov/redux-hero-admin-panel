@@ -1,6 +1,8 @@
 # Hero Admin Panel
 
-[Deploy](https://ilsapunov.github.io/redux-hero-admin-panel)
+![image](https://github.com/ilsapunov/redux-hero-admin-panel/assets/16673385/29692968-12e2-4ea0-9726-2ad7df7aa8ff)
+
+In this app you can add, delete and filter heroes from list
 
 # Created with Create React App + Redux with JSON Server
 
